@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-yvl1l5$#d7e+10vj=01(sh_+d50ok)+)c&(54r%w)t0mj!yixn
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'a4d7-101-100-183-42.ngrok-free.app', # add in the link ngrok gave here without https
+    'edeb-101-100-183-42.ngrok-free.app', # add in the link ngrok gave here without https
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://a4d7-101-100-183-42.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://edeb-101-100-183-42.ngrok-free.app']
 
 # Application definition
  

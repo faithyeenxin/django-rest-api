@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from ekyc_od_api.api_root_views import APIRootView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('project_api.urls')),
+    path('api/', APIRootView.as_view(), name='api-root'),
+    path('api/projects/', include('project_api.urls')),
+    path('api/users/', include('users_api.urls')),
 ]
