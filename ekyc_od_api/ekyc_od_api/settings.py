@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-yvl1l5$#d7e+10vj=01(sh_+d50ok)+)c&(54r%w)t0mj!yixn
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'edeb-101-100-183-42.ngrok-free.app', # add in the link ngrok gave here without https
+    '5ed9-101-100-183-42.ngrok-free.app', # add in the link ngrok gave here without https
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://edeb-101-100-183-42.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://5ed9-101-100-183-42.ngrok-free.app']
 
 # Application definition
  
@@ -143,10 +143,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         # Add other authentication classes as needed
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
+        # Add other permission classes as needed
     ],
 }

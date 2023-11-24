@@ -10,7 +10,10 @@ class ProjectListCreateView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        projects = Project.objects.filter(user=request.user)
+        if request.user.is_superuser:
+            projects = Project.objects.all()
+        else:
+            projects = Project.objects.filter(user=request.user)
         serializer = ProjectSerializer(projects, many=True, context={'request': request})
         return Response(serializer.data)
 
