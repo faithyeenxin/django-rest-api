@@ -9,7 +9,7 @@ class APIRootView(APIView):
         data = {
             'projects': reverse('project-list-create', request=request, format=format),
             'me': reverse('user-detail', request=request, format=format),
-            # 'users':  reverse('user-create', request=request, format=format),
+            'user-create':  reverse('user-create', request=request, format=format),
             # Add other endpoints here if needed
         }
         return Response(data)
