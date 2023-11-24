@@ -6,7 +6,6 @@ from .serializer import ProjectSerializer
 from rest_framework.permissions import IsAuthenticated
 from django.http import Http404
 from .custom_permissions import IsSuperUserOrStaffUser
-
 class ProjectListCreateView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -26,7 +25,6 @@ class ProjectListCreateView(APIView):
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 class ProjectDetailView(APIView):
     permission_classes = (IsAuthenticated,)
