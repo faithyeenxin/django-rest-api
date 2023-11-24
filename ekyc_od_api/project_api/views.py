@@ -5,15 +5,18 @@ from .models import Project
 from .serializer import ProjectSerializer
 from rest_framework.permissions import IsAuthenticated
 from django.http import Http404
+from .custom_permissions import IsSuperUserOrStaffUser
 
 class ProjectListCreateView(APIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = [IsAuthenticated]
+
+    def get_permissions(self):
+         if self.request.method == 'POST':
+            return [IsSuperUserOrStaffUser()]
+         return super().get_permissions()
 
     def get(self, request):
-        if request.user.is_superuser:
-            projects = Project.objects.all()
-        else:
-            projects = Project.objects.filter(user=request.user)
+        projects = Project.objects.all()
         serializer = ProjectSerializer(projects, many=True, context={'request': request})
         return Response(serializer.data)
 
@@ -40,13 +43,6 @@ class ProjectDetailView(APIView):
             serializer = ProjectSerializer(project, context={'request': request})
             return Response(serializer.data)
         return Response(status=status.HTTP_403_FORBIDDEN)
-
-    # def get(self, request, pk):
-    #     project = self.get_object(pk)
-    #     if project.user == request.user:
-    #         serializer = ProjectSerializer(project)
-    #         return Response(serializer.data)
-    #     return Response(status=status.HTTP_403_FORBIDDEN)
 
     def patch(self, request, pk):
         project = self.get_object(pk)
