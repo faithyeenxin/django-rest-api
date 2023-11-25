@@ -5,7 +5,7 @@ from .models import Project
 from .serializer import ProjectSerializer
 from rest_framework.permissions import IsAuthenticated
 from django.http import Http404
-from .custom_permissions import IsSuperUserOrStaffUser
+from ekyc_od_api.custom_permissions import IsSuperUserOrStaffUser
 class ProjectListCreateView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -27,8 +27,8 @@ class ProjectListCreateView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProjectDetailView(APIView):
-    permission_classes = (IsAuthenticated,)
-
+    permission_classes = [IsAuthenticated]
+    
     def get_object(self, pk):
         try:
             return Project.objects.get(pk=pk)

@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework.generics import RetrieveUpdateDestroyAPIView, CreateAPIView
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from .serializers import UserSerializer
-from .custom_permissions import IsSuperUser
+from ekyc_od_api.custom_permissions import IsSuperUser
 from rest_framework.generics import ListCreateAPIView
 
 # ONLY CAN POST, CANNOT VIEW ALL USERS

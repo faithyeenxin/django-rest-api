@@ -20,7 +20,7 @@ from ekyc_od_api.api_root_views import APIRootView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/', APIRootView.as_view(), name='api-root'),
     path('api/projects/', include('project_api.urls')),
     path('api/users/', include('users_api.urls')),
