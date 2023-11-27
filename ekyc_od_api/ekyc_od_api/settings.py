@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-yvl1l5$#d7e+10vj=01(sh_+d50ok)+)c&(54r%w)t0mj!yixn
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '5b67-101-100-183-42.ngrok-free.app', # add in the link ngrok gave here without https
+    'd09b-101-100-183-42.ngrok-free.app', # add in the link ngrok gave here without https
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://5b67-101-100-183-42.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://d09b-101-100-183-42.ngrok-free.app']
 
 # Application definition
  
@@ -90,9 +90,9 @@ DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'neondb',
-    'USER': 'faithyeenxin',
-    'PASSWORD': '32JSOTHlxjck',
-    'HOST': 'ep-fancy-lake-37476589.us-east-2.aws.neon.tech',
+    'USER': 'faith-pcl',
+    'PASSWORD': '8obOtqMVfAy2',
+    'HOST': 'ep-raspy-field-47062538.us-east-2.aws.neon.tech',
     'PORT': '5432',
     'OPTIONS': {'sslmode': 'require'},
   }
