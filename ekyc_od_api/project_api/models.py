@@ -9,3 +9,12 @@ class Project(models.Model):
 
     def __str__(self):
         return self.project_name
+    
+class ProjectEntry(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    project = models.ForeignKey(Project, related_name='entries', on_delete=models.CASCADE)
+    email = models.EmailField(unique=True, null=False, blank=False)
+    first_name = models.CharField(max_length=100, unique=True, null=False, blank=False)
+    last_name = models.CharField(max_length=100, unique=True, null=False, blank=False)
+    def __str__(self):
+        return f"{self.project.project_name} - Entry {self.id}"
